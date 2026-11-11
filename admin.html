@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>예약 관리 | 국악작업실K</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+:root{--paper:#f5f2ea;--white:#fdfbf7;--ink:#1c1a17;--ink-2:#5b554d;--line:#d8d0c0;--seal:#a8322a;--ok:#2f6b45;--amber:#9a6a08;--wood:#6e4420;
+  --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR","Segoe UI",sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55}
+h1,h2,h3{margin:0;line-height:1.25} h2{font-size:1.25rem} h3{font-size:1.05rem}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--seal);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.top{background:var(--ink);color:var(--paper)}
+.top .wrap{display:flex;align-items:center;gap:12px;min-height:58px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
+.brand{font-weight:700;letter-spacing:.08em;margin-right:auto}
+.brand small{font-weight:400;opacity:.7;letter-spacing:0;margin-left:8px}
+.pv{background:#fff3c4;color:#5c4a00;border-radius:999px;padding:2px 10px;font-size:.78rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);border-radius:8px;padding:9px 16px;font-weight:600;cursor:pointer;white-space:nowrap}
+.btn:hover{background:#3a352e}
+.btn.line{background:transparent;color:var(--ink)} .btn.line:hover{background:#ebe5d8}
+.btn.ok{background:var(--ok);border-color:var(--ok)} .btn.bad{background:var(--seal);border-color:var(--seal)}
+.btn.sm{padding:6px 12px;font-size:.88rem}
+.btn[disabled]{opacity:.5;cursor:default}
+.top .btn.line{color:var(--paper);border-color:#6b655c} .top .btn.line:hover{background:#3a352e}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin:22px 0 20px}
+.tabs button{border:0;background:none;padding:10px 16px;font-weight:600;color:var(--ink-2);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-1px}
+.tabs button[aria-selected="true"]{color:var(--ink);border-color:var(--seal)}
+.tabs .cnt{background:var(--seal);color:#fff;border-radius:999px;font-size:.72rem;padding:1px 7px;margin-left:6px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:18px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.stats .card{padding:14px 16px} .stats b{display:block;font-size:1.5rem;line-height:1.2} .stats span{font-size:.84rem;color:var(--ink-2)}
+.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.chip{border:1px solid var(--line);background:var(--white);border-radius:999px;padding:6px 14px;cursor:pointer;font-size:.9rem}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.inp{width:100%;border:1px solid #c9c0ae;border-radius:8px;background:#fff;padding:9px 11px}
+textarea.inp{min-height:70px;resize:vertical}
+.bar .inp{width:auto;flex:1;min-width:160px}
+.bk{background:var(--white);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.bk-head{display:grid;grid-template-columns:150px 1fr auto auto;gap:14px;align-items:center;width:100%;border:0;background:none;text-align:left;padding:14px 16px;cursor:pointer}
+.bk-head:hover{background:#f7f3ea}
+.bk-when b{display:block;font-size:1.05rem} .bk-when span,.bk-who span{font-size:.84rem;color:var(--ink-2)}
+.bk-who b{display:block}
+.bk-amt{text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+.bk-amt span{display:block;font-weight:400;font-size:.82rem;color:var(--ink-2)}
+.badge{display:inline-block;border-radius:999px;padding:3px 11px;font-size:.8rem;font-weight:700;white-space:nowrap}
+.badge.HOLD{background:#fdf0cf;color:var(--amber)} .badge.PAID{background:#dcefe2;color:var(--ok)} .badge.CANCELLED{background:#ece7dc;color:var(--ink-2)} .badge.late{background:#f6dcd8;color:var(--seal)}
+.bk-body{border-top:1px solid var(--line);padding:16px;display:grid;grid-template-columns:1fr 1fr;gap:16px 24px}
+.kv{margin:0;display:grid;grid-template-columns:92px 1fr;gap:6px 10px;font-size:.93rem}
+.kv dt{color:var(--ink-2)} .kv dd{margin:0;overflow-wrap:anywhere}
+.acts{grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap;align-items:center;border-top:1px solid var(--line);padding-top:14px}
+.acts .sp{margin-left:auto}
+.chk{display:inline-flex;align-items:center;gap:6px;font-size:.9rem}
+label.f{display:block;font-size:.84rem;color:var(--ink-2);margin:0 0 5px;font-weight:600}
+.help{font-size:.82rem;color:var(--ink-2);margin:5px 0 0}
+.empty{color:var(--ink-2);padding:26px;text-align:center}
+.cal2{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:18px;align-items:start}
+.cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.grid7{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.grid7 .w{text-align:center;font-size:.78rem;color:var(--ink-2);padding:2px 0}
+.d{min-height:66px;border:1px solid var(--line);border-radius:8px;background:#fff;padding:5px 6px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:2px;font-size:.78rem}
+.d .n{font-weight:700;font-size:.92rem}
+.d.past{background:#f1ede4;color:#8d867b} .d.shut{background:#ece7dc}
+.d.sel{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.d.today .n{color:var(--seal)}
+.d .p{color:var(--ok);font-weight:700} .d .h{color:var(--amber);font-weight:700} .d .x{color:var(--ink-2)}
+.pad{visibility:hidden}
+.slot{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--line)}
+.slot b{width:54px} .slot .meter{flex:1;font-size:.9rem;color:var(--ink-2)}
+.mini{font-size:.9rem;padding:8px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:10px}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px}
+.form .full{grid-column:1/-1}
+.days{display:flex;gap:6px;flex-wrap:wrap}
+.days label{border:1px solid #c9c0ae;border-radius:8px;padding:7px 12px;background:#fff;cursor:pointer}
+.days label:has(input:checked){background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.days input{position:absolute;opacity:0}
+.sec{margin-bottom:18px} .sec>h2{margin-bottom:4px} .sec>p{color:var(--ink-2);font-size:.9rem;margin:0 0 14px}
+.login{max-width:420px;margin:9vh auto;padding:0 20px}
+.login .card{padding:26px}
+.err{color:var(--seal);font-size:.9rem;margin:10px 0 0;min-height:1.2em}
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,20px);background:var(--ink);color:var(--paper);padding:11px 18px;border-radius:10px;opacity:0;pointer-events:none;transition:.2s;z-index:50;max-width:90vw}
+.toast.show{opacity:1;transform:translate(-50%,0)} .toast.bad{background:var(--seal)}
+dialog{border:1px solid var(--line);border-radius:14px;padding:22px;width:min(520px,92vw);background:var(--white);color:var(--ink)}
+dialog::backdrop{background:rgba(28,26,23,.45)}
+@media (max-width:760px){
+  .stats{grid-template-columns:1fr 1fr}.cal2,.bk-body,.form{grid-template-columns:1fr}
+  .bk-head{grid-template-columns:1fr auto;gap:6px 10px}.bk-amt{text-align:left}
+  .d{min-height:54px;padding:4px}
+}
+</style>
+</head>
+<body>
+<div id="root"><p class="empty">관리자 화면을 여는 중...</p></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<noscript><p style="padding:24px">관리자 화면은 자바스크립트를 켜야 쓸 수 있어요.</p></noscript>
+<script src="js/config.js"></script>
+<script src="js/core.js"></script>
+<script src="js/api.js"></script>
+<script>
+(function () {
+  'use strict';
+  var api = window.KGApi, root = document.getElementById('root'), TOKEN_KEY = 'kg-admin-token';
+  var S = { token: null, data: null, tab: 'list', filter: 'HOLD', q: '', open: {}, month: null, day: null };
+  var WEEK = ['일', '월', '화', '수', '목', '금', '토'];
+  var STATUS = { HOLD: '입금 대기', PAID: '확정', CANCELLED: '취소' };
+
+  /* ---------- 도구 ---------- */
+  function h(tag, attrs, kids) {
+    var e = document.createElement(tag), k;
+    for (k in (attrs || {})) {
+      var v = attrs[k]; if (v == null) continue;
+      if (k.indexOf('aria-') === 0) { e.setAttribute(k, String(v)); continue; }
+      if (v === false) continue;
+      if (k === 'text') e.textContent = v; else if (k === 'on') { for (var ev in v) e.addEventListener(ev, v[ev]); }
+      else if (k === 'value') e.value = v; else if (k === 'checked') e.checked = !!v; else e.setAttribute(k, v === true ? '' : v);
+    }
+    [].concat(kids || []).forEach(function (c) { if (c != null && c !== false) e.append(c); });
+    return e;
+  }
+  function tokenGet() { try { return sessionStorage.getItem(TOKEN_KEY) || S.token; } catch (e) { return S.token; } }
+  function tokenSet(t) { S.token = t; try { if (t) sessionStorage.setItem(TOKEN_KEY, t); else sessionStorage.removeItem(TOKEN_KEY); } catch (e) {} }
+  var toastTimer;
+  function toast(msg, bad) { var t = document.getElementById('toast'); t.textContent = msg; t.className = 'toast show' + (bad ? ' bad' : ''); clearTimeout(toastTimer); toastTimer = setTimeout(function () { t.className = 'toast'; }, 3000); }
+  function call(action, data) {
+    return api.call(action, Object.assign({ token: tokenGet() }, data || {})).then(function (r) {
+      if (r && r.code === 'auth') { tokenSet(null); login('로그인 시간이 지났어요. 다시 로그인해 주세요.'); }
+      return r || { ok: false, message: '응답이 없어요.' };
+    });
+  }
+  function busy(btn, text) { var old = btn.textContent; btn.disabled = true; btn.textContent = text || '저장 중...'; return function () { btn.disabled = false; btn.textContent = old; }; }
+  /* 두 번 눌러야 실행되는 버튼 (실수 방지) */
+  function confirmBtn(label, ask, cls, onYes) {
+    var armed = false, timer, b = h('button', { type: 'button', class: 'btn sm ' + (cls || 'line'), text: label });
+    b.addEventListener('click', function () {
+      if (!armed) { armed = true; b.textContent = ask; timer = setTimeout(function () { armed = false; b.textContent = label; }, 4000); return; }
+      clearTimeout(timer); armed = false; b.textContent = label; onYes(b);
+    });
+    return b;
+  }
+  function dateKo(d) { var p = d.split('-'); return (+p[1]) + '월 ' + (+p[2]) + '일 (' + WEEK[KG.weekdayNum(d)] + ')'; }
+  function field(label, input, help, full) { return h('div', { class: full ? 'full' : '' }, [h('label', { class: 'f', text: label }), input, help ? h('p', { class: 'help', text: help }) : null]); }
+  function expired(b) { return b.status === 'HOLD' && b.holdUntil && b.holdUntil <= S.data.now; }
+  function settings() { return KG.parseSettings(S.data.settings); }
+
+  /* ---------- 로그인 ---------- */
+  function boot() {
+    if (api.mode === 'off') {
+      root.replaceChildren(h('div', { class: 'login' }, h('div', { class: 'card' }, [h('h2', { text: '아직 연결 전이에요' }),
+        h('p', { text: '구글 시트 연결 주소가 js/config.js 에 들어가면 이 화면에서 예약을 관리할 수 있어요.' })])));
+      return;
+    }
+    if (tokenGet()) load().then(function (ok) { if (!ok) login(); }); else login();
+  }
+  function login(msg) {
+    var card = h('div', { class: 'card' }, h('p', { class: 'empty', text: '확인 중...' }));
+    root.replaceChildren(h('div', { class: 'login' }, [h('h1', { text: '국악작업실K 예약 관리', style: 'font-size:1.3rem;margin-bottom:14px' }), card]));
+    api.call('status').then(function (r) {
+      if (!r || !r.ok) { card.replaceChildren(h('p', { text: (r && r.message) || '연결하지 못했어요.' }), h('button', { class: 'btn', type: 'button', text: '다시 시도', on: { click: function () { login(); } } })); return; }
+      if (r.claimed) loginForm(card, msg); else claimForm(card);
+    });
+  }
+  function loginForm(card, msg) {
+    var pw = h('input', { class: 'inp', type: 'password', autocomplete: 'current-password', id: 'pw' }), err = h('p', { class: 'err', role: 'alert', text: msg || '' });
+    var btn = h('button', { class: 'btn', type: 'submit', text: '로그인', style: 'width:100%;margin-top:14px' });
+    var form = h('form', null, [h('label', { class: 'f', for: 'pw', text: '관리자 비밀번호' }), pw, btn, err,
+      api.mode === 'preview' ? h('p', { class: 'help', text: '미리보기에서는 처음에 설정 코드 PREVIEW 로 비밀번호를 만듭니다.' }) : null]);
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); var done = busy(btn, '확인 중...');
+      api.call('login', { password: pw.value }).then(function (r) { done(); if (r.ok) { tokenSet(r.token); load(); } else { err.textContent = r.message || '로그인하지 못했어요.'; if (r.code === 'claim') claimForm(card); } });
+    });
+    card.replaceChildren(form); pw.focus();
+  }
+  function claimForm(card) {
+    var code = h('input', { class: 'inp', id: 'code', autocomplete: 'off' }), pw = h('input', { class: 'inp', type: 'password', id: 'npw', autocomplete: 'new-password' });
+    var err = h('p', { class: 'err', role: 'alert' }), btn = h('button', { class: 'btn', type: 'submit', text: '비밀번호 만들기', style: 'width:100%;margin-top:14px' });
+    var form = h('form', null, [h('h2', { text: '처음 한 번만 하는 설정', style: 'margin-bottom:6px' }),
+      h('p', { class: 'help', text: '설정 코드를 넣고, 앞으로 쓸 관리자 비밀번호를 정해 주세요.' + (api.mode === 'preview' ? ' (미리보기 설정 코드: PREVIEW)' : ''), style: 'margin-bottom:14px' }),
+      h('label', { class: 'f', for: 'code', text: '설정 코드' }), code, h('label', { class: 'f', for: 'npw', text: '새 비밀번호 (8자 이상)', style: 'margin-top:12px' }), pw, btn, err]);
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); var done = busy(btn, '만드는 중...');
+      api.call('claim', { code: code.value, password: pw.value }).then(function (r) { done(); if (r.ok) { tokenSet(r.token); load(); } else { err.textContent = r.message || '만들지 못했어요.'; if (r.code === 'claimed') loginForm(card); } });
+    });
+    card.replaceChildren(form); code.focus();
+  }
+
+  /* ---------- 화면 틀 ---------- */
+  function load() {
+    return call('admin').then(function (r) {
+      if (!r.ok) { if (r.code !== 'auth') toast(r.message || '불러오지 못했어요.', true); return false; }
+      S.data = r; if (!S.month) S.month = KG.monthStart(r.today); if (!S.day) S.day = r.today;
+      shell(); return true;
+    });
+  }
+  function shell() {
+    var holds = S.data.bookings.filter(function (b) { return b.status === 'HOLD'; }).length;
+    var main = h('div');
+    var tabs = [['list', '예약 목록', holds], ['cal', '달력·쉬는 날'], ['set', '설정']].map(function (t) {
+      return h('button', { type: 'button', role: 'tab', 'aria-selected': S.tab === t[0], on: { click: function () { S.tab = t[0]; shell(); } } }, [t[1], t[2] ? h('span', { class: 'cnt', text: t[2] }) : null]);
+    });
+    root.replaceChildren(
+      h('div', { class: 'top' }, h('div', { class: 'wrap' }, [
+        h('div', { class: 'brand' }, ['국악작업실K', h('small', { text: '예약 관리' })]),
+        api.mode === 'preview' ? h('span', { class: 'pv', text: '미리보기 (이 브라우저에만 저장)' }) : null,
+        h('a', { class: 'btn line sm', href: 'index.html', target: '_blank', rel: 'noopener', text: '홈페이지 보기' }),
+        h('button', { class: 'btn line sm', type: 'button', text: '새로고침', on: { click: function (e) { var d = busy(e.target, '불러오는 중'); load().then(d); } } }),
+        h('button', { class: 'btn line sm', type: 'button', text: '로그아웃', on: { click: function () { call('logout'); tokenSet(null); S.data = null; login(); } } })
+      ])),
+      h('div', { class: 'wrap', style: 'padding-bottom:80px' }, [h('div', { class: 'tabs', role: 'tablist' }, tabs), main])
+    );
+    (S.tab === 'cal' ? tabCal : S.tab === 'set' ? tabSettings : tabList)(main);
+  }
+
+  /* ---------- 예약 목록 ---------- */
+  function tabList(main) {
+    var all = S.data.bookings, today = S.data.today, ym = today.slice(0, 7);
+    var live = all.filter(function (b) { return KG.isLive(b, S.data.now); });
+    var upcoming = live.filter(function (b) { return b.date >= today; });
+    var paidMonth = all.filter(function (b) { return b.status === 'PAID' && b.date.slice(0, 7) === ym; });
+    function sum(list, k) { return list.reduce(function (a, b) { return a + b[k]; }, 0); }
+    main.append(h('div', { class: 'stats' }, [
+      stat(all.filter(function (b) { return b.status === 'HOLD'; }).length + '건', '입금 기다리는 예약'),
+      stat(upcoming.length + '건 · ' + sum(upcoming, 'guests') + '명', '다가오는 예약'),
+      stat(sum(paidMonth, 'guests') + '명', '이번 달 확정 인원'),
+      stat(KG.won(sum(paidMonth, 'total')), '이번 달 확정 금액')
+    ]));
+    var listBox = h('div');
+    var search = h('input', { class: 'inp', type: 'search', placeholder: '이름·이메일·예약번호로 찾기', value: S.q, 'aria-label': '예약 찾기', on: { input: function () { S.q = search.value; draw(); } } });
+    var chips = [['HOLD', '입금 대기'], ['PAID', '확정'], ['CANCELLED', '취소'], ['ALL', '전체']].map(function (f) {
+      return h('button', { type: 'button', class: 'chip', 'aria-pressed': S.filter === f[0], text: f[1], on: { click: function () { S.filter = f[0]; shell(); } } });
+    });
+    main.append(h('div', { class: 'bar' }, chips.concat([search, h('button', { type: 'button', class: 'btn sm', text: '＋ 예약 직접 넣기', on: { click: function () { addDialog(S.data.today); } } })])));
+    main.append(listBox);
+    function draw() {
+      var q = S.q.trim().toLowerCase();
+      var list = all.filter(function (b) {
+        if (S.filter !== 'ALL' && b.status !== S.filter) return false;
+        return !q || (b.name + ' ' + b.email + ' ' + b.id).toLowerCase().indexOf(q) >= 0;
+      });
+      if (S.filter !== 'CANCELLED') list.sort(function (a, b) { return (a.date + a.time) < (b.date + b.time) ? -1 : 1; });
+      listBox.replaceChildren.apply(listBox, list.length ? list.map(card) : [h('p', { class: 'empty card', text: all.length ? '여기에 해당하는 예약이 없어요.' : '아직 들어온 예약이 없어요. 예약이 들어오면 알림 메일이 오고 여기에 나타납니다.' })]);
+    }
+    draw();
+  }
+  function stat(big, small) { return h('div', { class: 'card' }, [h('b', { text: big }), h('span', { text: small })]); }
+  function card(b) {
+    var box = h('div', { class: 'bk' });
+    var head = h('button', { type: 'button', class: 'bk-head', 'aria-expanded': !!S.open[b.id] }, [
+      h('div', { class: 'bk-when' }, [h('b', { text: dateKo(b.date) + ' ' + b.time }), h('span', { text: b.id })]),
+      h('div', { class: 'bk-who' }, [h('b', { text: b.name + ' · ' + b.guests + '명' }), h('span', { text: KG.NAME_KO[b.experience] + ' · ' + b.channel })]),
+      h('div', { class: 'bk-amt' }, [KG.won(b.total), b.date < S.data.today ? h('span', { text: '지난 날짜' }) : null]),
+      h('div', null, [h('span', { class: 'badge ' + b.status, text: STATUS[b.status] }), expired(b) ? h('span', { class: 'badge late', text: '기한 지남', style: 'margin-left:4px' }) : null])
+    ]);
+    head.addEventListener('click', function () { S.open[b.id] = !S.open[b.id]; shell(); });
+    box.append(head);
+    if (S.open[b.id]) box.append(detail(b));
+    return box;
+  }
+  function detail(b) {
+    var memo = h('textarea', { class: 'inp', value: b.memo, 'aria-label': '메모' });
+    var notify = h('input', { type: 'checkbox', checked: !!b.email });
+    function save(patch, okMsg, btn) {
+      var done = busy(btn);
+      call('saveBooking', Object.assign({ id: b.id, memo: memo.value }, patch)).then(function (r) {
+        done(); if (!r.ok) return toast(r.message || '저장하지 못했어요.', true);
+        toast(okMsg + (r.mailed === true ? ' 손님에게 메일을 보냈어요.' : r.mailed === false ? ' 단, 손님 메일은 보내지 못했어요.' : '')); load();
+      });
+    }
+    var acts = [];
+    if (b.status !== 'PAID') acts.push(h('button', { type: 'button', class: 'btn sm ok', text: '입금 확인 (확정)', on: { click: function (e) { save({ status: 'PAID', notify: notify.checked }, '확정했어요.', e.target); } } }));
+    if (b.status !== 'CANCELLED') acts.push(confirmBtn('예약 취소', '취소할까요? 한 번 더 누르세요', 'line', function (btn) { save({ status: 'CANCELLED', notify: notify.checked }, '취소했어요. 자리가 다시 열렸어요.', btn); }));
+    if (b.status !== 'HOLD') acts.push(h('button', { type: 'button', class: 'btn sm line', text: '입금 대기로 되돌리기', on: { click: function (e) { save({ status: 'HOLD' }, '입금 대기로 되돌렸어요.', e.target); } } }));
+    if (b.email) acts.push(h('label', { class: 'chk' }, [notify, '손님에게 안내 메일 보내기']));
+    acts.push(h('span', { class: 'sp' }));
+    acts.push(h('button', { type: 'button', class: 'btn sm line', text: '메모 저장', on: { click: function (e) { save({}, '메모를 저장했어요.', e.target); } } }));
+    acts.push(confirmBtn('삭제', '지울까요? 한 번 더 누르세요', 'line', function (btn) {
+      var done = busy(btn, '지우는 중'); call('deleteBooking', { id: b.id }).then(function (r) { done(); if (r.ok) { toast('지웠어요.'); delete S.open[b.id]; load(); } else toast(r.message || '지우지 못했어요.', true); });
+    }));
+    return h('div', { class: 'bk-body' }, [
+      h('dl', { class: 'kv' }, [
+        h('dt', { text: '이메일' }), h('dd', null, b.email ? h('a', { href: 'mailto:' + b.email, text: b.email }) : '-'),
+        h('dt', { text: '요청 사항' }), h('dd', { text: b.note || '-' }),
+        h('dt', { text: '받은 때' }), h('dd', { text: b.createdAt + (b.lang ? ' · 언어 ' + b.lang : '') }),
+        b.status === 'HOLD' ? h('dt', { text: '입금 기한' }) : null, b.status === 'HOLD' ? h('dd', { text: (b.holdUntil || '-') + (expired(b) ? ' (지나서 자리가 다시 열려 있어요)' : '') }) : null,
+        b.paidAt ? h('dt', { text: '확정한 때' }) : null, b.paidAt ? h('dd', { text: b.paidAt }) : null
+      ]),
+      h('div', null, [h('label', { class: 'f', text: '메모 (손님에게 보이지 않아요)' }), memo]),
+      h('div', { class: 'acts' }, acts)
+    ]);
+  }
+
+  /* ---------- 예약 직접 넣기 ---------- */
+  function addDialog(date, time) {
+    var s = settings(), times = s.slots.A.concat(s.slots.B).filter(function (t, i, a) { return a.indexOf(t) === i; }).sort();
+    function sel(opts, val) { var e = h('select', { class: 'inp' }, opts.map(function (o) { return h('option', { value: o[0], text: o[1] }); })); if (val) e.value = val; return e; }
+    var f = {
+      exp: sel([['A', KG.NAME_KO.A], ['B', KG.NAME_KO.B]]), date: h('input', { class: 'inp', type: 'date', value: date }),
+      time: sel(times.map(function (t) { return [t, t]; }), time), guests: h('input', { class: 'inp', type: 'number', min: 1, max: 50, value: 2 }),
+      name: h('input', { class: 'inp' }), email: h('input', { class: 'inp', type: 'email' }),
+      channel: sel(KG.CHANNELS.slice(1).map(function (c) { return [c, c]; })), status: sel([['PAID', '확정 (결제 끝남)'], ['HOLD', '입금 대기']]), memo: h('textarea', { class: 'inp' })
+    };
+    var err = h('p', { class: 'err', role: 'alert' }), dlg = h('dialog');
+    var saveBtn = h('button', { type: 'submit', class: 'btn', text: '넣기' });
+    var form = h('form', { class: 'form' }, [
+      h('h2', { class: 'full', text: '예약 직접 넣기' }),
+      h('p', { class: 'help full', text: '에어비앤비·전화·현장으로 받은 예약을 넣으면 홈페이지 달력의 남은 자리에 바로 반영됩니다.', style: 'margin-top:-8px' }),
+      field('체험', f.exp), field('받은 곳', f.channel), field('날짜', f.date), field('시작 시간', f.time),
+      field('인원', f.guests), field('상태', f.status), field('이름', f.name), field('이메일 (없어도 됨)', f.email), field('메모', f.memo, null, true),
+      h('div', { class: 'full', style: 'display:flex;gap:8px;justify-content:flex-end' }, [h('button', { type: 'button', class: 'btn line', text: '닫기', on: { click: function () { dlg.close(); } } }), saveBtn]), h('div', { class: 'full' }, err)
+    ]);
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); var done = busy(saveBtn, '넣는 중...');
+      call('addBooking', { experience: f.exp.value, date: f.date.value, time: f.time.value, guests: f.guests.value, name: f.name.value, email: f.email.value, channel: f.channel.value, status: f.status.value, memo: f.memo.value })
+        .then(function (r) { done(); if (!r.ok) { err.textContent = r.message || '넣지 못했어요.'; return; } dlg.close(); toast('예약을 넣었어요.'); S.filter = r.booking.status; S.day = r.booking.date; S.month = KG.monthStart(r.booking.date); load(); });
+    });
+    dlg.append(form); dlg.addEventListener('close', function () { dlg.remove(); });
+    document.body.append(dlg); dlg.showModal();
+  }
+
+  /* ---------- 달력·쉬는 날 ---------- */
+  function tabCal(main) {
+    var s = settings(), now = S.data.now, seats = KG.seatMap(S.data.bookings, now);
+    var byDay = {}; S.data.bookings.forEach(function (b) { if (b.status !== 'CANCELLED') (byDay[b.date] = byDay[b.date] || []).push(b); });
+    function closedAll(d) { return S.data.closed.some(function (c) { return c.date === d && !c.time; }); }
+    function closedAt(d, t) { return S.data.closed.some(function (c) { return c.date === d && c.time === t; }); }
+    var grid = h('div', { class: 'grid7' }, WEEK.map(function (w) { return h('div', { class: 'w', text: w }); }));
+    for (var i = 0; i < KG.weekdayNum(S.month); i++) grid.append(h('div', { class: 'd pad' }));
+    for (var d = S.month; d.slice(0, 7) === S.month.slice(0, 7); d = KG.addDays(d, 1)) (function (d) {
+      var list = byDay[d] || [], paid = 0, hold = 0;
+      list.forEach(function (b) { if (b.status === 'PAID') paid += b.guests; else if (KG.isLive(b, now)) hold += b.guests; });
+      var shut = closedAll(d) || s.openWeekdays.indexOf(KG.weekdayNum(d)) < 0;
+      grid.append(h('button', { type: 'button', class: 'd' + (d < S.data.today ? ' past' : '') + (shut ? ' shut' : '') + (d === S.day ? ' sel' : '') + (d === S.data.today ? ' today' : ''),
+        'aria-label': dateKo(d) + (paid ? ', 확정 ' + paid + '명' : '') + (hold ? ', 입금 대기 ' + hold + '명' : '') + (shut ? ', 쉬는 날' : ''), 'aria-pressed': d === S.day,
+        on: { click: function () { S.day = d; shell(); } } }, [
+        h('span', { class: 'n', text: String(+d.slice(8)) }),
+        paid ? h('span', { class: 'p', text: '확정 ' + paid }) : null, hold ? h('span', { class: 'h', text: '대기 ' + hold }) : null, shut ? h('span', { class: 'x', text: '쉼' }) : null
+      ]));
+    })(d);
+    var left = h('div', { class: 'card' }, [
+      h('div', { class: 'cal-head' }, [
+        h('button', { type: 'button', class: 'btn line sm', text: '‹ 이전 달', on: { click: function () { S.month = KG.addMonths(S.month, -1); shell(); } } }),
+        h('h2', { text: S.month.slice(0, 4) + '년 ' + (+S.month.slice(5, 7)) + '월' }),
+        h('button', { type: 'button', class: 'btn line sm', text: '다음 달 ›', on: { click: function () { S.month = KG.addMonths(S.month, 1); shell(); } } })
+      ]), grid,
+      h('p', { class: 'help', text: '날짜를 누르면 오른쪽에 그날의 회차와 예약이 나옵니다. 숫자는 인원입니다.' })
+    ]);
+
+    var day = S.day, dayList = (byDay[day] || []).slice().sort(function (a, b) { return a.time < b.time ? -1 : 1; });
+    var times = s.slots.A.concat(s.slots.B).concat(dayList.map(function (b) { return b.time; })).filter(function (t, i, a) { return t && a.indexOf(t) === i; }).sort();
+    var allShut = closedAll(day), weekOff = s.openWeekdays.indexOf(KG.weekdayNum(day)) < 0;
+    function toggle(time, shut, btn) {
+      var done = busy(btn, '바꾸는 중');
+      call('setClosed', { date: day, time: time, closed: shut }).then(function (r) { done(); if (r.ok) { toast(shut ? '닫았어요. 홈페이지에서 고를 수 없게 됩니다.' : '다시 열었어요.'); load(); } else toast(r.message || '바꾸지 못했어요.', true); });
+    }
+    var right = h('div', { class: 'card' }, [
+      h('div', { style: 'display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px' }, [
+        h('h2', { text: dateKo(day) }),
+        h('button', { type: 'button', class: 'btn sm ' + (allShut ? 'ok' : 'line'), text: allShut ? '이 날 다시 열기' : '이 날 하루 닫기', on: { click: function (e) { toggle('', !allShut, e.target); } } })
+      ]),
+      weekOff ? h('p', { class: 'help', text: '설정에서 예약을 받지 않는 요일입니다.' }) : null,
+      allShut ? h('p', { class: 'help', text: '하루 전체가 닫혀 있어 홈페이지에서 고를 수 없습니다.' }) : null,
+      h('div', null, times.map(function (t) {
+        var used = (seats[day] || {})[t] || 0, shut = closedAt(day, t);
+        return h('div', { class: 'slot' }, [h('b', { text: t }), h('span', { class: 'meter', text: used + ' / ' + s.capacity + '명' + (shut ? ' · 닫힘' : '') }),
+          allShut ? null : h('button', { type: 'button', class: 'btn sm line', text: shut ? '열기' : '닫기', 'aria-label': t + (shut ? ' 회차 열기' : ' 회차 닫기'), on: { click: function (e) { toggle(t, !shut, e.target); } } }),
+          h('button', { type: 'button', class: 'btn sm line', text: '＋', 'aria-label': t + ' 회차에 예약 넣기', on: { click: function () { addDialog(day, t); } } })]);
+      })),
+      h('h3', { text: '이 날 예약', style: 'margin:16px 0 4px' }),
+      dayList.length ? h('div', null, dayList.map(function (b) {
+        return h('div', { class: 'mini' }, [h('span', { text: b.time + ' · ' + b.name + ' · ' + b.guests + '명 · ' + b.channel }),
+          h('button', { type: 'button', class: 'badge ' + b.status, style: 'border:0;cursor:pointer', text: STATUS[b.status] + (expired(b) ? ' (기한 지남)' : ''), 'aria-label': b.name + ' 예약 열기',
+            on: { click: function () { S.tab = 'list'; S.filter = 'ALL'; S.q = b.id; S.open[b.id] = true; shell(); } } })]);
+      })) : h('p', { class: 'help', text: '예약이 없습니다.' })
+    ]);
+    main.append(h('div', { class: 'cal2' }, [left, right]));
+  }
+
+  /* ---------- 설정 ---------- */
+  function tabSettings(main) {
+    var v = S.data.settings;
+    function inp(key, attrs) { return h('input', Object.assign({ class: 'inp', value: v[key], 'data-k': key }, attrs || {})); }
+    var accepting = h('select', { class: 'inp', 'data-k': 'accepting' }, [h('option', { value: '예', text: '받는 중' }), h('option', { value: '아니오', text: '잠시 멈춤 (달력이 모두 닫힙니다)' })]); accepting.value = v.accepting;
+    var open = v.openWeekdays.split(',');
+    var days = h('div', { class: 'days' }, WEEK.map(function (w, i) { return h('label', null, [h('input', { type: 'checkbox', value: i, checked: open.indexOf(String(i)) >= 0 }), w]); }));
+    var note = h('textarea', { class: 'inp', 'data-k': 'confirmNote', value: v.confirmNote, style: 'min-height:110px' });
+    var saveBtn = h('button', { type: 'submit', class: 'btn', text: '설정 저장' });
+    var form = h('form', null, [
+      h('div', { class: 'card sec' }, [h('h2', { text: '예약 받기' }), h('p', { text: '홈페이지 달력에 바로 반영됩니다.' }), h('div', { class: 'form' }, [
+        field('온라인 예약', accepting), field('한 회차 정원 (명)', inp('capacity', { type: 'number', min: 1, max: 50 })),
+        field('A 공연+다과 시작 시간', inp('slotsA'), '쉼표로 나눠 적습니다. 예: 11:00,14:00,16:00'), field('B 공연+악기체험 시작 시간', inp('slotsB'), '같은 시각의 A와 B는 같은 방을 쓰므로 정원을 함께 셉니다.'),
+        field('예약 받는 요일', days, null, true),
+        field('며칠 전까지 예약 받기', inp('minLeadDays', { type: 'number', min: 0, max: 30 }), '1이면 전날까지, 0이면 당일도 받습니다.'), field('몇 달 뒤까지 열어 두기', inp('maxMonths', { type: 'number', min: 1, max: 12 })),
+        field('입금 기다리는 시간', inp('holdHours', { type: 'number', min: 1, max: 240 }), '이 시간이 지나도 입금 확인을 안 하면 자리가 다시 열립니다.')
+      ])]),
+      h('div', { class: 'card sec' }, [h('h2', { text: '입금 계좌' }), h('p', { text: '예약을 마친 손님의 화면과 안내 메일에 나옵니다. 해외 손님이 보므로 영문으로 적어 주세요. 비워 두면 "계좌는 메일로 따로 안내"라고 나옵니다.' }), h('div', { class: 'form' }, [
+        field('은행 이름 (영문)', inp('bankName', { placeholder: '예: Kookmin Bank' })), field('SWIFT 코드', inp('bankSwift')),
+        field('계좌번호', inp('bankAccount', { autocomplete: 'off' })), field('예금주 (영문)', inp('bankHolder'))
+      ])]),
+      h('div', { class: 'card sec' }, [h('h2', { text: '메일' }), h('p', { text: '새 예약이 들어오면 아래 주소로 알림이 갑니다.' }), h('div', { class: 'form' }, [
+        field('알림 받을 이메일', inp('notifyEmail', { type: 'email' }), null, true),
+        field('확정 메일에 덧붙일 안내 (영문)', note, '입금 확인을 누르면 손님에게 가는 확정 메일에 들어갑니다. 주소, 오시는 길, 도착 시간 등을 적어 주세요.', true)
+      ])]),
+      h('div', { style: 'display:flex;justify-content:flex-end' }, saveBtn)
+    ]);
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); var payload = {};
+      form.querySelectorAll('[data-k]').forEach(function (i) { payload[i.dataset.k] = i.value; });
+      payload.openWeekdays = [].map.call(days.querySelectorAll('input:checked'), function (i) { return i.value; }).join(',');
+      var done = busy(saveBtn);
+      call('saveSettings', { settings: payload }).then(function (r) { done(); if (r.ok) { S.data.settings = r.settings; toast('설정을 저장했어요.'); shell(); } else toast(r.message || '저장하지 못했어요.', true); });
+    });
+    var cur = h('input', { class: 'inp', type: 'password', autocomplete: 'current-password' }), nw = h('input', { class: 'inp', type: 'password', autocomplete: 'new-password' });
+    var pwBtn = h('button', { type: 'submit', class: 'btn line', text: '비밀번호 바꾸기' });
+    var pwForm = h('form', { class: 'card sec', style: 'margin-top:18px' }, [h('h2', { text: '관리자 비밀번호' }), h('p', { text: '8자 이상으로 정해 주세요.' }),
+      h('div', { class: 'form' }, [field('지금 비밀번호', cur), field('새 비밀번호', nw), h('div', { class: 'full' }, pwBtn)])]);
+    pwForm.addEventListener('submit', function (e) {
+      e.preventDefault(); var done = busy(pwBtn, '바꾸는 중');
+      call('changePassword', { current: cur.value, next: nw.value }).then(function (r) { done(); if (r.ok) { toast('비밀번호를 바꿨어요.'); pwForm.reset(); } else toast(r.message || '바꾸지 못했어요.', true); });
+    });
+    main.append(form, pwForm);
+  }
+
+  boot();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>K Gugak Studio — Live Korean Traditional Music & Tea in Busan</title>
+<meta name="description" content="An intimate live gugak concert in a tile-roof house in Busan. Listen to gayageum, geomungo and pansori, share Korean tea, or play the instruments yourself. Up to 10 guests. From ₩50,000. Book online.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="K Gugak Studio — Live Korean Traditional Music & Tea in Busan">
+<meta property="og:description" content="Listen to gayageum, geomungo and pansori up close, share Korean tea, or play the instruments yourself. Up to 10 guests.">
+<meta property="og:image" content="assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"K Gugak Studio (국악작업실K)",
+"description":"Live Korean traditional music (gugak) concerts, traditional tea and hands-on instrument experiences for international visitors in Busan.",
+"address":{"@type":"PostalAddress","addressLocality":"Busan","addressCountry":"KR"},"image":"assets/og.jpg","priceRange":"₩50,000–₩100,000",
+"makesOffer":[{"@type":"Offer","name":"Gugak Concert & Korean Tea (1 hour)","price":"50000","priceCurrency":"KRW"},
+{"@type":"Offer","name":"Gugak Concert & Play-It-Yourself (2 hours)","price":"100000","priceCurrency":"KRW"}]}
+</script>
+<style>
+:root{
+  --paper:#f5f2ea; --paper-2:#ebe5d8; --ink:#1c1a17; --ink-2:#57524b; --line:#d8d0c0;
+  --wood:#8b5a2b; --wood-deep:#6e4420; --seal:#a8322a; --white:#fdfbf7; --ok:#2f6b45;
+  --serif:"Cormorant Garamond","Gowun Batang","Hiragino Mincho ProN","Songti TC",Georgia,serif;
+  --kserif:"Gowun Batang","Hiragino Mincho ProN","Songti TC",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Hiragino Sans","PingFang TC","Noto Sans KR",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:80px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16.5px;line-height:1.65}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.2rem,4.6vw,3.6rem);letter-spacing:-.01em}
+h2{font-size:clamp(1.8rem,3vw,2.4rem)}
+h3{font-size:1.5rem}
+p{margin:0 0 1em;text-wrap:pretty}
+.eyebrow{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--wood-deep);font-weight:600;margin-bottom:12px;display:block}
+.lede{font-size:1.08rem;color:var(--ink-2)}
+:focus-visible{outline:2px solid var(--seal);outline-offset:3px}
+
+header{position:sticky;top:0;z-index:30;background:rgba(245,242,234,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:22px;height:62px}
+.logo{font-family:var(--kserif);font-size:1.2rem;letter-spacing:.26em;text-decoration:none;white-space:nowrap}
+.logo sup{font-family:var(--sans);font-size:.6em;letter-spacing:0;margin-left:-.2em}
+nav{display:flex;gap:22px;margin-left:auto;font-size:.9rem}
+nav a{text-decoration:none;color:var(--ink-2)} nav a:hover{color:var(--ink)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{border:0;background:none;padding:6px 11px;font:inherit;font-size:.78rem;cursor:pointer;color:var(--ink-2)}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.btn{display:inline-flex;justify-content:center;align-items:center;background:var(--seal);color:#fff;text-decoration:none;padding:14px 24px;border-radius:8px;font-size:1rem;font-weight:600;border:1px solid var(--seal);cursor:pointer;font-family:inherit;transition:background .2s}
+.btn:hover{background:#8e2620;border-color:#8e2620}
+.btn.dark{background:var(--ink);border-color:var(--ink)} .btn.dark:hover{background:var(--wood-deep);border-color:var(--wood-deep)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.small{padding:8px 16px;font-size:.85rem}
+.btn[disabled]{opacity:.5;cursor:default}
+
+/* title + gallery */
+.top{padding:34px 0 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 24px;padding:0;list-style:none}
+.chips li{border:1px solid var(--line);background:var(--white);border-radius:999px;padding:5px 13px;font-size:.84rem;color:var(--ink-2)}
+.mosaic{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:230px 230px;gap:8px;border-radius:14px;overflow:hidden}
+.mosaic img{width:100%;height:100%;object-fit:cover}
+.mosaic .m1{grid-row:span 2;object-position:50% 72%}
+.mosaic .m3{object-position:50% 55%}
+
+/* layout */
+.cols{display:grid;grid-template-columns:minmax(0,1fr) 392px;gap:56px;align-items:start;padding:44px 0 80px}
+.main>section{padding:40px 0;border-bottom:1px solid var(--line)}
+.main>section:first-child{padding-top:0}
+.main>section:last-child{border-bottom:0}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:12px;background:var(--white);margin-top:24px}
+.facts div{padding:16px 18px;border-right:1px solid var(--line)}
+.facts div:last-child{border-right:0}
+.facts b{display:block;font-family:var(--serif);font-size:1.45rem;font-weight:600;line-height:1.15}
+.facts span{font-size:.82rem;color:var(--ink-2)}
+
+.opt{border:1px solid var(--line);background:var(--white);border-radius:12px;padding:26px;margin-top:18px}
+.opt.dark{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.opt-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px}
+.tag{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--wood);font-weight:600}
+.opt.dark .tag{color:#dcbc8f}
+.opt h3{margin:6px 0 8px;font-size:1.7rem}
+.opt .pr{text-align:right;white-space:nowrap}
+.opt .pr b{font-family:var(--serif);font-size:1.9rem;font-weight:600;line-height:1;display:block}
+.opt .pr span{font-size:.8rem;opacity:.7}
+.steps{list-style:none;padding:0;margin:14px 0 18px;border-top:1px solid var(--line)}
+.opt.dark .steps{border-color:#48433c}
+.steps li{display:grid;grid-template-columns:58px 1fr;gap:12px;padding:9px 0;font-size:.94rem;border-bottom:1px solid var(--line)}
+.opt.dark .steps li{border-color:#48433c}
+.steps time{font-variant-numeric:tabular-nums;opacity:.6;font-size:.84rem;padding-top:2px}
+.opt.dark .btn.ghost{color:var(--paper);border-color:var(--paper)}
+
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+.duo img{border-radius:12px;width:100%;aspect-ratio:4/5;object-fit:cover}
+.points{list-style:none;padding:0;margin:18px 0 0;border-top:1px solid var(--line)}
+.points li{padding:11px 0;border-bottom:1px solid var(--line);font-size:.94rem}
+.points b{font-family:var(--serif);font-size:1.15rem;font-weight:600;display:block}
+
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px;counter-reset:s}
+.how div{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:22px;counter-increment:s}
+.how div::before{content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--paper);font-family:var(--serif);font-size:1.15rem;margin-bottom:12px}
+.how h4{margin:0 0 6px;font-family:var(--serif);font-size:1.25rem;font-weight:600}
+.how p{margin:0;font-size:.92rem;color:var(--ink-2)}
+table{width:100%;border-collapse:collapse;margin-top:14px;font-size:.95rem}
+td,th{padding:11px 0;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+td:last-child{text-align:right;font-weight:600;white-space:nowrap}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:0 32px;margin-top:8px}
+.info div{padding:16px 0;border-bottom:1px solid var(--line)}
+.info h4{margin:0 0 4px;font-family:var(--serif);font-size:1.2rem;font-weight:600}
+.info p{margin:0;font-size:.93rem;color:var(--ink-2)}
+details{border-bottom:1px solid var(--line);padding:15px 0}
+summary{cursor:pointer;font-family:var(--serif);font-size:1.25rem;list-style:none;display:flex;justify-content:space-between;gap:20px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--sans);font-weight:300}
+details[open] summary::after{content:"–"}
+details p{margin:10px 0 0;color:var(--ink-2)}
+
+/* booking card */
+.card{position:sticky;top:84px;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:0 12px 32px rgba(40,30,15,.09)}
+.card h2{font-size:1.6rem;margin-bottom:4px}
+.card .from{font-size:.9rem;color:var(--ink-2);margin-bottom:16px}
+label,.lab{display:block;font-size:.74rem;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-2);margin:14px 0 6px;font-weight:600}
+input,select,textarea{width:100%;background:#fff;border:1px solid #c9c0ae;color:var(--ink);padding:11px 12px;font:inherit;font-size:1rem;border-radius:8px}
+textarea{min-height:64px;resize:vertical}
+.seg{display:grid;gap:8px}
+.seg label{margin:0;text-transform:none;letter-spacing:0;font-size:.93rem;font-weight:500;color:var(--ink);border:1px solid #c9c0ae;border-radius:8px;padding:10px 12px;cursor:pointer;display:flex;justify-content:space-between;gap:10px;background:#fff}
+.seg input{position:absolute;opacity:0;width:0;height:0}
+.seg label:has(input:checked){border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink);background:#f7f3ea}
+.seg label:has(input:focus-visible){outline:2px solid var(--seal);outline-offset:2px}
+.seg label:has(input:disabled){opacity:.45;cursor:default;text-decoration:line-through}
+.seg.times{grid-template-columns:repeat(3,1fr)}
+.seg.times label{justify-content:center;flex-direction:column;align-items:center;gap:0;text-align:center}
+.seg small{color:var(--ink-2);font-size:.74rem}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.qty{display:flex;align-items:center;border:1px solid #c9c0ae;border-radius:8px;background:#fff;height:46px}
+.qty button{width:44px;height:100%;border:0;background:none;font-size:1.3rem;cursor:pointer;color:var(--ink)}
+.qty output{flex:1;text-align:center;font-weight:600}
+.total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);margin-top:18px;padding-top:14px}
+.total b{font-family:var(--serif);font-size:1.9rem;font-weight:600}
+.card .btn{width:100%;margin-top:14px}
+.fine{font-size:.8rem;color:var(--ink-2);margin:10px 0 0;text-align:center}
+.msg{font-size:.88rem;margin:10px 0 0;color:var(--seal)}
+.test{background:#fff3c4;border:1px solid #d9b94a;color:#5c4a00;border-radius:8px;padding:8px 10px;font-size:.8rem;margin-bottom:12px}
+.done h2{color:var(--ok)}
+.done dl{margin:14px 0;border-top:1px solid var(--line)}
+.done dl div{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:.93rem}
+.done dt{color:var(--ink-2)} .done dd{margin:0;font-weight:600;text-align:right}
+.bank{background:#f7f3ea;border:1px solid var(--line);border-radius:10px;padding:14px;font-size:.92rem}
+.bank h4{margin:0 0 6px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+.bank p{margin:0}
+.mbar{display:none}
+.press{list-style:none;padding:0;margin:18px 0 0;border-top:1px solid var(--line)}
+.press li{padding:14px 0;border-bottom:1px solid var(--line)}
+.press a{font-family:var(--serif);font-size:1.2rem;text-decoration:none;display:block;line-height:1.3}
+.press a:hover{text-decoration:underline}
+.press small{display:block;color:var(--wood-deep);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin-bottom:4px}
+.press span{display:block;font-size:.92rem;color:var(--ink-2);margin-top:4px}
+.cal{border:1px solid #c9c0ae;border-radius:10px;background:#fff;padding:10px 10px 8px}
+.cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.cal-head strong{font-family:var(--serif);font-size:1.25rem;font-weight:600}
+.cal-head button{width:36px;height:36px;border:1px solid var(--line);border-radius:50%;background:#fff;font-size:1.2rem;line-height:1;cursor:pointer;color:var(--ink)}
+.cal-head button:disabled{opacity:.3;cursor:default}
+.cal-week,.cal-days{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.cal-week span{text-align:center;font-size:.7rem;color:var(--ink-2);padding:4px 0;text-transform:uppercase;letter-spacing:.04em}
+.day{position:relative;aspect-ratio:1/1;min-height:38px;border:1px solid transparent;border-radius:8px;background:none;font:inherit;font-size:.95rem;font-variant-numeric:tabular-nums;color:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:0}
+.day i{width:5px;height:5px;border-radius:50%;background:transparent}
+button.day{cursor:pointer;background:#f3f8f3;border-color:#cfe2d3;font-weight:600}
+button.day i{background:var(--ok)}
+button.day.few{background:#fdf6e6;border-color:#ecd9a8} button.day.few i{background:#c98a12}
+button.day:hover{border-color:var(--ink)}
+button.day[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)} button.day[aria-pressed="true"] i{background:var(--paper)}
+div.day{color:#b9b1a2}
+div.day.full{color:#a8322a;text-decoration:line-through;background:#f8eeec}
+.day.today .n{text-decoration:underline;text-underline-offset:3px}
+div.day.full.today .n{text-decoration:line-through}
+.cal-legend{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:8px;font-size:.74rem;color:var(--ink-2)}
+.cal-legend span{display:inline-flex;align-items:center;gap:5px}
+.lg{width:11px;height:11px;border-radius:3px;border:1px solid #cfe2d3;background:#f3f8f3}
+.lg.few{border-color:#ecd9a8;background:#fdf6e6}.lg.full{border-color:#ecd3cf;background:#f8eeec}
+.cal-note{font-size:.84rem;color:var(--seal);margin:8px 0 0}
+.picked{margin:10px 0 0;font-weight:600;font-size:.95rem}
+.hint{margin:0;font-size:.88rem;color:var(--ink-2);grid-column:1/-1}
+@media (prefers-reduced-motion:no-preference){.cal-days.swap{animation:calin .16s ease-out}}
+@keyframes calin{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
+
+footer{padding:34px 0 110px;font-size:.84rem;color:var(--ink-2);border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+@media (max-width:980px){
+  nav{display:none} .lang{margin-left:auto}
+  .cols{grid-template-columns:1fr;gap:0;padding-top:28px}
+  .card{position:static;margin:8px 0 40px;order:-1}
+  .side{order:2}
+  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--white);border-top:1px solid var(--line);padding:10px 16px;justify-content:space-between;align-items:center;gap:12px}
+  .mbar b{font-family:var(--serif);font-size:1.3rem}
+  .mbar span{font-size:.78rem;color:var(--ink-2);display:block}
+}
+@media (max-width:640px){
+  body{font-size:16px}.wrap{padding:0 16px}
+  .mosaic{grid-template-columns:1fr 1fr;grid-template-rows:240px 120px 120px}
+  .mosaic .m1{grid-column:span 2;grid-row:auto}
+  .facts{grid-template-columns:1fr 1fr}
+  .facts div:nth-child(2){border-right:0}
+  .facts div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .duo,.how,.info{grid-template-columns:1fr}
+  .opt{padding:20px}.opt-head{flex-direction:column;gap:6px}.opt .pr{text-align:left}
+  .bar .btn{display:none}
+  .logo{font-size:1.02rem;letter-spacing:.16em}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top" aria-label="K Gugak Studio">국악작업실<sup>K</sup></a>
+    <nav aria-label="Main">
+      <a href="#experiences" data-i18n="nav1">Experiences</a>
+      <a href="#how" data-i18n="navHow">How to book</a>
+      <a href="#pay" data-i18n="navPay">Payment</a>
+      <a href="#faq" data-i18n="nav4">FAQ</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button data-lang="en" aria-pressed="true">EN</button>
+      <button data-lang="ja" aria-pressed="false">日本語</button>
+      <button data-lang="zh" aria-pressed="false">中文</button>
+    </div>
+    <a class="btn small" href="#book" data-i18n="book">Book</a>
+  </div>
+</header>
+
+<main id="top">
+<div class="wrap top">
+  <span class="eyebrow" data-i18n="heroEyebrow">Busan · Live Korean traditional music</span>
+  <h1 data-i18n="heroTitle">Hear Korea up close. <em>Then play it yourself.</em></h1>
+  <ul class="chips">
+    <li data-i18n="chip1">📍 Busan, South Korea</li>
+    <li data-i18n="chip2">⏱ 1 or 2 hours</li>
+    <li data-i18n="chip3">👥 Up to 10 guests</li>
+    <li data-i18n="chip4">☔ Indoors, any weather</li>
+    <li data-i18n="chip5">🎵 No experience needed</li>
+  </ul>
+  <div class="mosaic">
+    <img class="m1" src="assets/room.jpg" alt="The music room: an eight-panel ink-painting folding screen, bamboo mat, drums, gayageum and geomungo">
+    <img class="m2" src="assets/house.jpg" alt="The tile-roof house of K Gugak Studio with its wooden deck">
+    <img class="m3" src="assets/instruments.jpg" alt="Gayageum and geomungo leaning against the wall">
+    <img class="m4" src="assets/stage.jpg" alt="The music room seen from the entrance">
+    <img class="m5" src="assets/tea-room.jpg" alt="The wooden tea table and chairs">
+  </div>
+</div>
+
+<div class="wrap cols">
+  <div class="main">
+    <section>
+      <p class="lede" data-i18n="heroLede">A small tile-roof house in Busan, a painted folding screen, and musicians an arm's length away. Listen to gayageum, geomungo and pansori, share a pot of Korean tea — or stay longer and make the music with your own hands.</p>
+      <div class="facts">
+        <div><b data-i18n="fa1">1–2 hrs</b><span data-i18n="f1">Easy to fit into a Busan day</span></div>
+        <div><b>≤ 10</b><span data-i18n="f2">Guests per session</span></div>
+        <div><b>₩50,000~</b><span data-i18n="f3">Per person, tea included</span></div>
+        <div><b data-i18n="fa4">English</b><span data-i18n="fa4s">Guidance language</span></div>
+      </div>
+    </section>
+
+    <section id="experiences">
+      <span class="eyebrow" data-i18n="exEyebrow">Two ways to visit</span>
+      <h2 data-i18n="exTitle">Come to listen, or come to play.</h2>
+      <article class="opt">
+        <div class="opt-head">
+          <div><span class="tag" data-i18n="aTag">Experience A · 1 hour</span><h3 data-i18n="aTitle">Gugak Concert & Korean Tea</h3></div>
+          <div class="pr"><b>₩50,000</b><span data-i18n="pp">per person</span></div>
+        </div>
+        <p data-i18n="aDesc">A live concert of string music and song, followed by traditional tea and sweets at the table while you ask the musicians anything.</p>
+        <ul class="steps">
+          <li><time>0:00</time><span data-i18n="a1">Welcome, shoes off, a short guide to what you are about to hear</span></li>
+          <li><time>0:05</time><span data-i18n="a2">Live concert — gayageum, geomungo, pansori and folk song</span></li>
+          <li><time>0:35</time><span data-i18n="a3">Korean tea and sweets, conversation and photos with the instruments</span></li>
+        </ul>
+        <a class="btn dark small" href="#book" data-pick="A" data-i18n="pickBtn">Choose this experience</a>
+      </article>
+      <article class="opt dark">
+        <div class="opt-head">
+          <div><span class="tag" data-i18n="bTag">Experience B · 2 hours</span><h3 data-i18n="bTitle">Gugak Concert & Play-It-Yourself</h3></div>
+          <div class="pr"><b>₩100,000</b><span data-i18n="pp">per person</span></div>
+        </div>
+        <p data-i18n="bDesc">The full concert, then your turn: learn the sounds of Korean instruments on tablet gugak instruments built in this studio, and finish by playing a piece together.</p>
+        <ul class="steps">
+          <li><time>0:00</time><span data-i18n="b1">Welcome and a short guide to the instruments</span></li>
+          <li><time>0:10</time><span data-i18n="b2">Live concert — gayageum, geomungo, pansori and folk song</span></li>
+          <li><time>0:45</time><span data-i18n="b3">Meet the instruments: how each one makes its sound</span></li>
+          <li><time>1:00</time><span data-i18n="b4">Hands-on session with tablet gugak instruments</span></li>
+          <li><time>1:45</time><span data-i18n="b5">Your group's mini concert, and photos to take home</span></li>
+        </ul>
+        <a class="btn ghost small" href="#book" data-pick="B" data-i18n="pickBtn">Choose this experience</a>
+      </article>
+    </section>
+
+    <section>
+      <div class="duo">
+        <div>
+          <span class="eyebrow" data-i18n="cEyebrow">The concert</span>
+          <h2 data-i18n="cTitle">No stage. No microphone. Just the room.</h2>
+          <ul class="points">
+            <li><b data-i18n="c1b">Gayageum</b><span data-i18n="c1">A twelve-string zither plucked with bare fingers. Bright, fluid, and the Korean sound most visitors recognise.</span></li>
+            <li><b data-i18n="c2b">Geomungo</b><span data-i18n="c2">Six thick strings struck with a bamboo stick. Deep, percussive, and once the instrument of scholars.</span></li>
+            <li><b data-i18n="c3b">Pansori</b><span data-i18n="c3">Korea's sung storytelling — one voice carrying a whole drama, listed by UNESCO as intangible heritage.</span></li>
+            <li><b data-i18n="c4b">Minyo</b><span data-i18n="c4">Folk songs everyone in Korea knows. You will be invited to join the refrain.</span></li>
+          </ul>
+        </div>
+        <img src="assets/instruments.jpg" alt="Gayageum and geomungo beside a plant in the music room" loading="lazy">
+      </div>
+    </section>
+
+    <section>
+      <span class="eyebrow" data-i18n="pEyebrow">Play it yourself · Experience B</span>
+      <h2 data-i18n="pTitle">A Korean instrument you can play in ten minutes.</h2>
+      <p class="lede" style="margin-top:14px" data-i18n="pLede">A real gayageum takes years. So we built our own tablet gugak instruments: touch the strings on the screen and you get the true sound of the instrument, without the years.</p>
+      <p data-i18n="pBody">After watching how the real instruments are played, each guest gets a tablet. We learn a simple Korean melody step by step, split into parts, and play it as an ensemble. Children, grandparents and people who "can't play anything" all manage it — that is exactly who we designed it for.</p>
+    </section>
+
+    <section id="how">
+      <span class="eyebrow" data-i18n="howE">How to book</span>
+      <h2 data-i18n="howT">Reserve in three steps.</h2>
+      <div class="how">
+        <div><h4 data-i18n="h1t">Pick a date and time</h4><p data-i18n="h1d">Choose your experience, then tap a green day on the calendar and pick a start time. No account needed.</p></div>
+        <div><h4 data-i18n="h2t">Get your booking code</h4><p data-i18n="h2d">You receive a booking code and the bank transfer details on screen and by email.</p></div>
+        <div><h4 data-i18n="h3t">Transfer, and you're in</h4><p data-i18n="h3d">Send the payment within 48 hours. We email your confirmation and directions once it arrives.</p></div>
+      </div>
+    </section>
+
+    <section id="pay">
+      <span class="eyebrow" data-i18n="payE">Payment & cancellation</span>
+      <h2 data-i18n="payT">Pay by bank transfer.</h2>
+      <p style="margin-top:14px" data-i18n="payD">Payment is by bank transfer in Korean won (KRW). Your seats are held for 48 hours after you book and confirmed when the transfer arrives. For international transfers, please cover the sending fees so the full amount is received.</p>
+      <table>
+        <tr><td data-i18n="can1">Cancel 3 or more days before</td><td data-i18n="can1v">100% refund</td></tr>
+        <tr><td data-i18n="can2">Cancel 2 days before</td><td data-i18n="can2v">50% refund</td></tr>
+        <tr><td data-i18n="can3">Cancel 1 day before or less, or no-show</td><td data-i18n="can3v">No refund</td></tr>
+        <tr><td data-i18n="can4">Change of date (3 or more days before)</td><td data-i18n="can4v">Free</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <span class="eyebrow" data-i18n="iEyebrow">Good to know</span>
+      <h2 data-i18n="iTitle">Before you come</h2>
+      <div class="info">
+        <div><h4 data-i18n="i1h">Where</h4><p data-i18n="i1"><span data-address>Busan, South Korea</span>. The exact address and directions are sent with your confirmation.</p></div>
+        <div><h4 data-i18n="i2h">Group size</h4><p data-i18n="i2">Up to 10 guests per session. Private sessions for families and groups on request.</p></div>
+        <div><h4 data-i18n="i3h">Language</h4><p data-i18n="i3">Guidance in English. Music needs no translation.</p></div>
+        <div><h4 data-i18n="i4h">Seating</h4><p data-i18n="i4">Shoes off, seated on the floor mat in the Korean way. Tell us in advance if you need a chair.</p></div>
+        <div><h4 data-i18n="i5h">Tea & sweets</h4><p data-i18n="i5">Traditional Korean tea and sweets are served. Please tell us about allergies when booking.</p></div>
+        <div><h4 data-i18n="i6h">Photos</h4><p data-i18n="i6">Photos and video are welcome. You can hold the instruments for pictures afterwards.</p></div>
+      </div>
+    </section>
+
+    <section id="press">
+      <span class="eyebrow">In the press</span>
+      <h2>Our musicians in the Korean news</h2>
+      <p style="margin-top:14px">Coverage of the performers you will hear: gugak artist 곽은진 (Kwak Eun-jin) and the folk-song group 민요그룹 흥 (Heung). Articles are in Korean.</p>
+      <ul class="press">
+        <li><small>Maeil Business Newspaper · 22 Dec 2021</small>
+          <a href="https://v.daum.net/v/20211222040438685" target="_blank" rel="noopener" lang="ko">예술가들이 찾아가는 문화공연… '베란다콘서트'에 4200명 웃었다</a>
+          <span>Folk-song group Heung played the "Veranda Concert" series by BNK Busan Bank and the Busan Cultural Foundation: ten apartment complexes, about 4,200 residents listening from their balconies.</span></li>
+        <li><small>Electronic Times · 20 Jun 2021</small>
+          <a href="https://v.daum.net/v/20210620111005461" target="_blank" rel="noopener" lang="ko">BNK부산銀, 찾아가는 문화공연 '베란다 콘서트' 개최</a>
+          <span>Heung opened the first Veranda Concert in Busanjin-gu, Busan.</span></li>
+        <li><small>Financial News · 20 Jun 2021</small>
+          <a href="https://v.daum.net/v/20210620140640223" target="_blank" rel="noopener" lang="ko">BNK부산은행, 부산문화재단과 '워라밸 컬처 인 부산 베란다 콘서트' 개최</a></li>
+        <li><small>Dailian · 20 Jun 2021</small>
+          <a href="https://v.daum.net/v/20210620125332924" target="_blank" rel="noopener" lang="ko">부산은행, 아파트로 찾아가는 '베란다 콘서트' 개최</a></li>
+        <li><small>Kukmin Ilbo · 27 Jul 2012</small>
+          <a href="https://v.daum.net/v/20120727175306158" target="_blank" rel="noopener" lang="ko">세계 민속악기 페스티벌, 8월3일 용두산공원서</a>
+          <span>Kwak Eun-jin's gugak performance on the programme of the World Folk Instrument Festival at Yongdusan Park, Busan.</span></li>
+      </ul>
+    </section>
+
+    <section id="faq">
+      <span class="eyebrow">FAQ</span>
+      <h2 style="margin-bottom:14px" data-i18n="qTitle">Questions guests ask</h2>
+      <details><summary data-i18n="q1">I have never played an instrument. Is Experience B for me?</summary><p data-i18n="q1a">Yes. The tablet instruments were made for first-timers. We teach everything from the first note, and nobody plays alone.</p></details>
+      <details><summary data-i18n="q2">Can children join?</summary><p data-i18n="q2a">Children are welcome with an adult. The concert is quiet and close-up, so it suits children who can sit and listen for about thirty minutes.</p></details>
+      <details><summary data-i18n="q3">How do I pay?</summary><p data-i18n="q3n">Book on this page and pay by bank transfer in Korean won. The account details appear with your booking code and are emailed to you.</p></details>
+      <details><summary data-i18n="q4">What if my plans change?</summary><p data-i18n="q4n">Tell us as early as you can. Changes are free up to 3 days before; refunds follow the table above.</p></details>
+      <details><summary data-i18n="q5">Is it good for a rainy day?</summary><p data-i18n="q5a">It is one of the best things to do in Busan when it rains — everything happens indoors, and rain on a tile roof suits the music.</p></details>
+    </section>
+  </div>
+
+  <aside class="side">
+    <div class="card" id="book">
+      <div id="testBadge" class="test" hidden>PREVIEW — saved in this browser only. 미리보기: 이 브라우저에만 저장되고 메일은 가지 않습니다.</div>
+      <form id="bookForm" novalidate>
+        <h2 data-i18n="bkT">Reserve your seat</h2>
+        <p class="from" data-i18n="bkFrom">From ₩50,000 per person · no card needed</p>
+
+        <span class="lab" data-i18n="lProg">Experience</span>
+        <div class="seg">
+          <label><span><input type="radio" name="prog" value="A" checked><span data-i18n="sA">A · Concert & Korean Tea</span></span><small>1h · ₩50,000</small></label>
+          <label><span><input type="radio" name="prog" value="B"><span data-i18n="sB">B · Concert & Play-It-Yourself</span></span><small>2h · ₩100,000</small></label>
+        </div>
+
+        <span class="lab" id="calLab" data-i18n="lCal">Choose a date</span>
+        <div class="cal" role="group" aria-labelledby="calLab">
+          <div class="cal-head">
+            <button type="button" id="calPrev" aria-label="Previous month">‹</button>
+            <strong id="calTitle" aria-live="polite"></strong>
+            <button type="button" id="calNext" aria-label="Next month">›</button>
+          </div>
+          <div class="cal-week" id="calWeek" aria-hidden="true"></div>
+          <div class="cal-days" id="calDays"></div>
+          <div class="cal-legend" aria-hidden="true">
+            <span><i class="lg"></i><span data-i18n="lgOpen">Available</span></span>
+            <span><i class="lg few"></i><span data-i18n="lgFew">Few seats left</span></span>
+            <span><i class="lg full"></i><span data-i18n="lgFull">Full</span></span>
+          </div>
+          <p class="cal-note" id="calNote" hidden></p>
+        </div>
+        <p class="picked" id="picked" aria-live="polite" hidden></p>
+
+        <span class="lab" data-i18n="lTime">Start time</span>
+        <div class="seg times" id="times"></div>
+
+        <span class="lab" data-i18n="lGuests">Guests</span>
+        <div class="qty"><button type="button" id="minus" aria-label="Fewer guests">−</button><output id="guests">2</output><button type="button" id="plus" aria-label="More guests">+</button></div>
+
+        <label for="name" data-i18n="lName">Your name</label><input id="name" name="name" autocomplete="name" required>
+        <label for="email" data-i18n="lEmail">Email</label><input id="email" name="email" type="email" autocomplete="email" required>
+        <label for="msg" data-i18n="lMsg2">Notes (allergies, children, chair needed)</label><textarea id="msg" name="msg"></textarea>
+        <input name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+
+        <div class="total"><span data-i18n="lTotal">Total</span><b id="total">₩100,000</b></div>
+        <button class="btn" type="submit" id="submitBtn" data-i18n="bkBtn">Reserve now</button>
+        <p class="fine" data-i18n="bkFine">You pay by bank transfer after booking. Seats are held for 48 hours.</p>
+        <p class="msg" id="formMsg" role="alert" hidden></p>
+      </form>
+
+      <div class="done" id="done" hidden>
+        <h2 data-i18n="dnT">Booking received</h2>
+        <p data-i18n="dnD">Your seats are held for 48 hours. Complete the bank transfer below to confirm.</p>
+        <dl>
+          <div><dt data-i18n="dnCode">Booking code</dt><dd id="dCode"></dd></div>
+          <div><dt data-i18n="lProg">Experience</dt><dd id="dProg"></dd></div>
+          <div><dt data-i18n="dnWhen">Date & time</dt><dd id="dWhen"></dd></div>
+          <div><dt data-i18n="lGuests">Guests</dt><dd id="dGuests"></dd></div>
+          <div><dt data-i18n="dnAmt">Amount to transfer</dt><dd id="dAmt"></dd></div>
+        </dl>
+        <div class="bank">
+          <h4 data-i18n="bnT">Bank transfer details</h4>
+          <p id="bankBox"></p>
+        </div>
+        <p class="fine" data-i18n="dnRef">Please write your booking code as the transfer reference.</p>
+        <button class="btn ghost" type="button" id="again" data-i18n="dnAgain">Make another booking</button>
+      </div>
+    </div>
+  </aside>
+</div>
+</main>
+
+<div class="mbar"><div><b>₩50,000~</b><span data-i18n="pp">per person</span></div><a class="btn small" href="#book" data-i18n="bkBtn">Reserve now</a></div>
+
+<footer>
+  <div class="wrap">
+    <span>국악작업실K · K Gugak Studio · <span data-address>Busan, South Korea</span> · <a href="https://www.instagram.com/k_gugakstudio/" target="_blank" rel="noopener">Instagram @K_gugakstudio</a></span>
+    <span>© <span id="yr"></span> K Gugak Studio</span>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/core.js"></script>
+<script src="js/api.js"></script>
+<script>
+/* 설정은 js/config.js (연결 주소) 와 관리자 페이지 admin.html (시간·정원·쉬는 날·계좌) 에 있습니다 */
+const CFG = window.KG_CONFIG || {}, api = window.KGApi;
+const PRICE = KG.PRICE;
+const I18N = {
+ja: {
+nav1:"体験プラン", nav2:"演奏体験", nav3:"スタジオ", nav4:"よくある質問", book:"予約",
+heroEyebrow:"釜山 · 韓国伝統音楽の生演奏",
+heroTitle:"韓国の音を、すぐそばで。<br><em>そして自分の手で。</em>",
+heroLede:"釜山の小さな瓦屋根の家。屏風の前、手の届く距離で奏でられる伽耶琴(カヤグム)、玄琴(コムンゴ)、パンソリ。演奏のあとは韓国茶をゆっくりと。もう少し長く滞在して、ご自身で演奏することもできます。",
+heroCta1:"席を予約する", heroCta2:"2つの体験を見る",
+f1u:"時間", f1:"釜山観光の合間に", f2:"1回あたりの定員", f3:"お一人様・お茶付き", f4:"楽器経験は不要",
+exEyebrow:"2つの楽しみ方", exTitle:"聴きに来る。弾きに来る。",
+exLede:"どちらも同じ生演奏から始まります。そのあとの時間の過ごし方をお選びください。",
+aTag:"体験A · 1時間", aTitle:"国楽コンサートと韓国茶",
+aDesc:"弦楽器と歌の生演奏のあと、伝統茶とお菓子を囲みながら、演奏者に何でも質問できます。",
+pp:"お一人様",
+a1:"ご案内。靴を脱いで、これから聴く音楽の短い解説", a2:"生演奏 — 伽耶琴、玄琴、パンソリ、民謡", a3:"韓国茶とお菓子、歓談、楽器との記念撮影",
+aBtn:"コンサートとお茶を予約",
+bTag:"体験B · 2時間", bTitle:"国楽コンサートと演奏体験",
+bDesc:"コンサートのあとは皆さまの番。当スタジオが開発したタブレット国楽器で韓国楽器の音を学び、最後は全員で一曲合奏します。",
+b1:"ご案内と楽器の短い解説", b2:"生演奏 — 伽耶琴、玄琴、パンソリ、民謡", b3:"楽器紹介：それぞれの音の出し方", b4:"タブレット国楽器の演奏体験", b5:"グループのミニコンサートと記念撮影",
+bBtn:"コンサートと演奏体験を予約",
+cEyebrow:"コンサート", cTitle:"舞台もマイクもなし。部屋そのものが楽器です。",
+cLede:"国楽はもともと、このような部屋のための音楽です。奏者から数歩の敷物に座ると、ホールでは聞こえない絹の弦の揺れや、歌い出す前の息づかいまで聞こえます。",
+c1b:"伽耶琴", c1:"指で直接はじく十二弦の琴。明るく流れるような、もっとも親しまれている韓国の音色。",
+c2b:"玄琴", c2:"竹の棒で打ち鳴らす六本の太い弦。深く力強い、かつて学者たちが愛した楽器。",
+c3b:"パンソリ", c3:"一人の歌い手が物語全体を歌い語る芸能。ユネスコ無形文化遺産。",
+c4b:"民謡", c4:"韓国の誰もが知る歌。サビはぜひご一緒に。",
+pEyebrow:"演奏体験 · 体験B", pTitle:"10分で弾ける韓国の楽器。",
+pLede:"本物の伽耶琴の習得には何年もかかります。そこで私たちはタブレット国楽器を自ら作りました。画面の弦に触れるだけで、本物の楽器の音が鳴ります。",
+pBody:"本物の楽器の奏法を見たあと、お一人ずつタブレットをお渡しします。やさしい韓国の旋律を一歩ずつ学び、パートに分かれて合奏します。お子さまもご年配の方も、「楽器は苦手」という方も大丈夫。そのために作った楽器です。",
+sEyebrow:"スタジオ", sTitle:"毎日音楽が生まれる作業室を、ゲストに開きます。",
+sLede:"「国楽作業室」は国楽の仕事場という意味です。コンサートのための音楽室と、お茶のための静かなテーブルがあります。",
+iEyebrow:"ご案内", iTitle:"ご来場の前に",
+i1h:"場所", i1:"<span data-address>韓国・釜山</span>。詳しい住所と行き方は予約確定時にお送りします。",
+i2h:"定員", i2:"1回最大10名。ご家族・グループの貸切もご相談ください。",
+i3h:"言語", i3:"英語でご案内します。音楽に通訳は要りません。",
+i4h:"お席", i4:"靴を脱ぎ、韓国式に床の敷物に座ります。椅子が必要な方は事前にお知らせください。",
+i5h:"お茶とお菓子", i5:"韓国の伝統茶とお菓子をお出しします。アレルギーは予約時にお知らせください。",
+i6h:"撮影", i6:"写真・動画の撮影歓迎。終演後は楽器を持って撮影できます。",
+qTitle:"よくある質問",
+q1:"楽器を弾いたことがありません。体験Bに参加できますか？", q1a:"はい。タブレット楽器は初めての方のために作りました。最初の一音からお教えし、一人で弾くことはありません。",
+q2:"子どもも参加できますか？", q2a:"保護者同伴で歓迎します。静かで距離の近い演奏なので、30分ほど座って聴けるお子さまに向いています。",
+q3:"支払い方法は？", q3a:"Airbnbで予約・決済するか、当スタジオに直接予約してカードでオンライン決済できます。",
+q4:"予定が変わったら？", q4a:"できるだけ早くご連絡ください。可能な限り別の回に振り替えます。Airbnbでのご予約は掲載のキャンセルポリシーに従います。",
+q5:"雨の日でも楽しめますか？", q5a:"雨の釜山にこそおすすめです。すべて室内で、瓦屋根の雨音は音楽によく合います。",
+kEyebrow:"ご予約", kTitle:"日にちをお選びください。お席をご用意します。",
+kLede:"リクエストをお送りいただくと、確認と行き方をご返信します。少人数制のため、数日前のご予約をおすすめします。",
+soon:"準備中",
+lProg:"体験", optA:"A · コンサートと韓国茶 — 1時間 — ₩50,000", optB:"B · コンサートと演奏体験 — 2時間 — ₩100,000",
+lDate:"ご希望日", lGuests:"人数", lName:"お名前", lContact:"メールまたはWhatsApp", lMsg:"ご要望（アレルギー、お子さま、椅子など）",
+lTotal:"合計", sWa:"WhatsAppで申し込む", sMail:"メールで申し込む", sPay:"カードでオンライン決済",
+kNote:"返信をもって予約確定となります。お支払いは韓国ウォン(KRW)です。"
+},
+zh: {
+nav1:"體驗方案", nav2:"親手演奏", nav3:"空間", nav4:"常見問題", book:"預約",
+heroEyebrow:"釜山 · 韓國傳統音樂現場演奏",
+heroTitle:"近距離聆聽韓國。<br><em>再親手彈奏。</em>",
+heroLede:"釜山一棟小小的瓦屋，一座水墨屏風，演奏者就在伸手可及之處。聆聽伽倻琴、玄鶴琴與盤索里，共享一壺韓國茶——或者多留一會兒，親手奏出音樂。",
+heroCta1:"預約座位", heroCta2:"查看兩種體驗",
+f1u:"小時", f1:"輕鬆排入釜山行程", f2:"每場人數上限", f3:"每人，含茶點", f4:"不需任何音樂基礎",
+exEyebrow:"兩種造訪方式", exTitle:"來聽，或者來彈。",
+exLede:"兩種體驗都從同一場現場演奏開始，之後的時光由您選擇。",
+aTag:"體驗 A · 1 小時", aTitle:"國樂音樂會與韓國茶",
+aDesc:"絃樂與歌唱的現場演奏之後，圍坐品嚐傳統茶與茶點，並可向演奏者自由提問。",
+pp:"每人",
+a1:"迎賓、脫鞋入內，簡短導聆", a2:"現場演奏 — 伽倻琴、玄鶴琴、盤索里與民謠", a3:"韓國茶與茶點、交流，並與樂器合影",
+aBtn:"預約音樂會與茶",
+bTag:"體驗 B · 2 小時", bTitle:"國樂音樂會與親手演奏",
+bDesc:"完整音樂會之後輪到您：用本工作室自行開發的平板國樂器認識韓國樂器的聲音，最後大家合奏一曲。",
+b1:"迎賓與樂器簡介", b2:"現場演奏 — 伽倻琴、玄鶴琴、盤索里與民謠", b3:"認識樂器：每種樂器如何發聲", b4:"平板國樂器實作", b5:"小組迷你音樂會與合影",
+bBtn:"預約音樂會與演奏體驗",
+cEyebrow:"音樂會", cTitle:"沒有舞台，沒有麥克風，只有這個房間。",
+cLede:"國樂本來就是為這樣的房間而寫。坐在離演奏者幾步之遙的蓆子上，您會聽見音樂廳裡聽不到的聲音——絲絃的顫動、開口前的一口氣。",
+c1b:"伽倻琴", c1:"以手指直接撥奏的十二絃琴，明亮流暢，是最為人熟悉的韓國音色。",
+c2b:"玄鶴琴", c2:"以竹棒擊奏的六條粗絃，低沉有力，曾是文人雅士的樂器。",
+c3b:"盤索里", c3:"一人唱出整齣故事的說唱藝術，已列入聯合國教科文組織無形文化遺產。",
+c4b:"民謠", c4:"韓國人人會唱的歌，歡迎一起唱副歌。",
+pEyebrow:"親手演奏 · 體驗 B", pTitle:"十分鐘就能彈奏的韓國樂器。",
+pLede:"真正的伽倻琴要學好幾年，所以我們自己做了平板國樂器：輕觸螢幕上的琴絃，就能奏出樂器真實的聲音。",
+pBody:"看過真樂器的演奏方式後，每位客人會拿到一台平板。我們一步步學一段簡單的韓國旋律，分部合奏。孩子、長輩，還有自認「什麼都不會彈」的人都能完成——這正是我們設計它的原因。",
+sEyebrow:"空間", sTitle:"一間每天都在創作的音樂工作室，為旅人敞開。",
+sLede:"「國樂作業室」意為國樂的工作間。這裡有舉行音樂會的音樂室，以及一張安靜的茶桌。",
+iEyebrow:"行前須知", iTitle:"來訪之前",
+i1h:"地點", i1:"<span data-address>韓國釜山</span>。詳細地址與交通方式將隨預約確認一併寄送。",
+i2h:"人數", i2:"每場最多 10 位。家庭與團體可洽詢包場。",
+i3h:"語言", i3:"以英語導覽。音樂不需要翻譯。",
+i4h:"座位", i4:"脫鞋後依韓式席地而坐。如需椅子請事先告知。",
+i5h:"茶與茶點", i5:"提供韓國傳統茶與茶點。如有過敏請於預約時告知。",
+i6h:"拍照", i6:"歡迎拍照錄影，結束後可手持樂器合影。",
+qTitle:"常見問題",
+q1:"我從沒彈過樂器，適合參加體驗 B 嗎？", q1a:"適合。平板樂器就是為初學者而做，我們從第一個音教起，而且不會讓您獨自演奏。",
+q2:"小孩可以參加嗎？", q2a:"歡迎由成人陪同參加。演奏安靜且距離很近，適合能坐著聆聽約三十分鐘的孩子。",
+q3:"如何付款？", q3a:"可透過 Airbnb 預約付款，或直接向我們預約並線上刷卡。",
+q4:"行程有變怎麼辦？", q4a:"請盡早聯絡，我們會盡量為您改期。透過 Airbnb 的預約依頁面所示取消政策辦理。",
+q5:"適合雨天嗎？", q5a:"這是釜山雨天最好的活動之一——全程在室內，瓦屋頂上的雨聲與音樂很相配。",
+kEyebrow:"預約", kTitle:"選個日子，我們為您留一個位子。",
+kLede:"送出申請後，我們會回覆確認與交通資訊。場次人數少，建議提前幾天預約。",
+soon:"即將開放",
+lProg:"體驗", optA:"A · 音樂會與韓國茶 — 1 小時 — ₩50,000", optB:"B · 音樂會與親手演奏 — 2 小時 — ₩100,000",
+lDate:"希望日期", lGuests:"人數", lName:"姓名", lContact:"Email 或 WhatsApp", lMsg:"其他需求（過敏、孩童、需要椅子等）",
+lTotal:"合計", sWa:"以 WhatsApp 申請", sMail:"以 Email 申請", sPay:"線上刷卡付款",
+kNote:"收到我們的回覆後預約才算成立。以韓元 (KRW) 付款。"
+}};
+const NEW = {
+en: {},
+ja: {
+navHow:"予約方法", navPay:"お支払い",
+chip1:"📍 韓国・釜山", chip2:"⏱ 1時間または2時間", chip3:"👥 最大10名", chip4:"☔ 室内・雨天OK", chip5:"🎵 楽器経験不要",
+fa1:"1〜2時間", fa4:"英語", fa4s:"ご案内の言語", pickBtn:"この体験を選ぶ",
+howE:"予約方法", howT:"3ステップで予約。",
+h1t:"日時を選ぶ", h1d:"体験を選び、カレンダーの緑の日をタップして開始時間を選びます。会員登録は不要です。",
+h2t:"予約番号を受け取る", h2d:"予約番号と振込先が画面とメールで届きます。",
+h3t:"お振込みで確定", h3d:"48時間以内にお振込みください。入金確認後、確定メールと行き方をお送りします。",
+payE:"お支払いとキャンセル", payT:"お支払いは銀行振込です。",
+payD:"お支払いは韓国ウォン(KRW)の銀行振込です。ご予約後48時間お席を確保し、入金確認をもって確定となります。海外送金の場合、送金手数料はお客様のご負担でお願いします。",
+can1:"3日前までのキャンセル", can1v:"全額返金", can2:"2日前のキャンセル", can2v:"50%返金", can3:"前日・当日のキャンセル、無断欠席", can3v:"返金なし", can4:"日程変更（3日前まで）", can4v:"無料",
+q3n:"このページで予約し、韓国ウォンの銀行振込でお支払いください。振込先は予約番号と一緒に表示され、メールでも届きます。",
+q4n:"できるだけ早くご連絡ください。3日前までの変更は無料、返金は上の表のとおりです。",
+bkT:"席を予約する", bkFrom:"お一人様 ₩50,000から · カード不要", sA:"A · コンサートと韓国茶", sB:"B · コンサートと演奏体験",
+lTime:"開始時間", lEmail:"メールアドレス", lMsg2:"ご要望（アレルギー、お子さま、椅子など）", bkBtn:"今すぐ予約",
+bkFine:"ご予約後に銀行振込でお支払いください。お席は48時間確保されます。",
+dnT:"ご予約を受け付けました", dnD:"お席を48時間確保しています。下記へお振込みいただくと確定します。",
+dnCode:"予約番号", dnWhen:"日時", dnAmt:"お振込み金額", bnT:"お振込先", dnRef:"振込名義・メッセージ欄に予約番号をご記入ください。", dnAgain:"別の予約をする",
+lCal:"日にちを選ぶ", lgOpen:"予約可", lgFew:"残りわずか", lgFull:"満席", pickDate:"まずカレンダーで日にちをお選びください。", eClosed:"その日時は受付を終了しました。別の日時をお選びください。", paused:"オンライン予約は一時休止中です。Instagramでご連絡ください。", slotOff:"受付終了",
+bankSoon:"お振込先は確認メールでご案内します。", left:"残り{n}席", full:"満席",
+eDate:"日にちを選んでください。", eTime:"開始時間を選んでください。", eName:"お名前を入力してください。", eEmail:"有効なメールアドレスを入力してください。",
+eFull:"この回は残り{n}席です。人数か時間を変えてください。", eNet:"送信できませんでした。もう一度お試しいただくか、Instagramでご連絡ください。", eSetup:"オンライン予約は準備中です。Instagram @K_gugakstudio までご連絡ください。", sending:"送信中…"
+},
+zh: {
+navHow:"預約方式", navPay:"付款",
+chip1:"📍 韓國釜山", chip2:"⏱ 1 或 2 小時", chip3:"👥 最多 10 位", chip4:"☔ 室內・雨天可", chip5:"🎵 不需音樂基礎",
+fa1:"1–2 小時", fa4:"英語", fa4s:"導覽語言", pickBtn:"選擇此體驗",
+howE:"預約方式", howT:"三步驟完成預約。",
+h1t:"選擇日期與時間", h1d:"選擇體驗後，點選月曆上的綠色日期並選擇開始時間，不需註冊帳號。",
+h2t:"取得預約編號", h2d:"預約編號與匯款資訊會顯示在畫面上並寄到您的信箱。",
+h3t:"匯款後即確認", h3d:"請於 48 小時內匯款。款項到帳後，我們會寄出確認信與交通資訊。",
+payE:"付款與取消", payT:"以銀行匯款付款。",
+payD:"以韓元 (KRW) 銀行匯款付款。預約後座位保留 48 小時，款項到帳即確認。國際匯款請由匯款人負擔手續費，使我們收到全額。",
+can1:"3 天前（含）取消", can1v:"全額退款", can2:"2 天前取消", can2v:"退款 50%", can3:"前 1 天內取消或未到", can3v:"不退款", can4:"更改日期（3 天前）", can4v:"免費",
+q3n:"在本頁預約後，以韓元銀行匯款付款。匯款帳戶會與預約編號一同顯示，並寄到您的信箱。",
+q4n:"請盡早告知。3 天前更改免費，退款依上表辦理。",
+bkT:"預約座位", bkFrom:"每人 ₩50,000 起 · 不需信用卡", sA:"A · 音樂會與韓國茶", sB:"B · 音樂會與親手演奏",
+lTime:"開始時間", lEmail:"Email", lMsg2:"其他需求（過敏、孩童、需要椅子等）", bkBtn:"立即預約",
+bkFine:"預約後以銀行匯款付款，座位保留 48 小時。",
+dnT:"已收到您的預約", dnD:"座位已為您保留 48 小時，完成下方匯款後即確認。",
+dnCode:"預約編號", dnWhen:"日期與時間", dnAmt:"應匯金額", bnT:"匯款資訊", dnRef:"請在匯款備註填寫預約編號。", dnAgain:"再預約一筆",
+lCal:"選擇日期", lgOpen:"可預約", lgFew:"即將額滿", lgFull:"額滿", pickDate:"請先在月曆上選擇日期。", eClosed:"該日期或時段已停止受理，請改選其他時間。", paused:"線上預約暫停中，請透過 Instagram 聯絡我們。", slotOff:"已截止",
+bankSoon:"匯款帳戶將隨確認信寄出。", left:"剩 {n} 位", full:"額滿",
+eDate:"請選擇日期。", eTime:"請選擇開始時間。", eName:"請填寫姓名。", eEmail:"請填寫有效的 Email。",
+eFull:"此場次只剩 {n} 位，請調整人數或時間。", eNet:"送出失敗，請再試一次或透過 Instagram 聯絡我們。", eSetup:"線上預約即將開放，請先透過 Instagram @K_gugakstudio 聯絡。", sending:"送出中…"
+}};
+const EN_EXTRA = {
+pickDate:"Choose a date on the calendar first.", eClosed:"That date or time is no longer available. Please choose another.", paused:"Online booking is paused. Please message us on Instagram.", slotOff:"Closed",
+bankSoon:"We will email the bank details with your booking.", left:"{n} left", full:"Full",
+eDate:"Please choose a date.", eTime:"Please choose a start time.", eName:"Please enter your name.", eEmail:"Please enter a valid email address.",
+eFull:"Only {n} seats are left for that time. Please change the guests or time.", eNet:"We could not send your booking. Please try again or message us on Instagram.",
+eSetup:"Online booking is opening soon. Please message us on Instagram @K_gugakstudio.", sending:"Sending…"
+};
+for (const l of ["ja","zh"]) Object.assign(I18N[l], NEW[l]);
+
+const $ = (s, r=document) => r.querySelector(s), $$ = (s, r=document) => [...r.querySelectorAll(s)];
+const EN = { ...EN_EXTRA }; $$('[data-i18n]').forEach(el => { EN[el.dataset.i18n] ??= el.innerHTML; });
+let lang = 'en';
+const t = (k, n) => ((I18N[lang] && I18N[lang][k]) || EN[k] || k).replace('{n}', n);
+const won = n => '₩' + n.toLocaleString('en-US');
+const LOCALE = { en: 'en-US', ja: 'ja-JP', zh: 'zh-Hant' };
+let data = null;            // 공개 예약 현황 { today, now, settings, seats, closed }
+let month = null;           // 달력에 보이는 달의 1일
+let picked = '';            // 고른 날짜
+let guests = 2;
+const prog = () => $('input[name=prog]:checked').value;
+const slot = () => { const r = $('input[name=slot]:checked'); return r ? r.value : ''; };
+const fmt = (d, o) => new Intl.DateTimeFormat(LOCALE[lang], { ...o, timeZone: 'UTC' }).format(new Date(d + 'T00:00:00Z'));
+const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+
+function fallback(){
+  const today = api.kstToday();
+  return { today, now: today + ' 00:00', settings: KG.parseSettings(KG.DEFAULTS), seats: {}, closed: [], offline: true };
+}
+async function loadData(){
+  const r = await api.call('public');
+  data = r && r.ok ? r : fallback();
+  const min = KG.monthStart(data.today), max = KG.monthStart(KG.addMonths(data.today, data.settings.maxMonths));
+  if (!month || month < min || month > max) month = min;
+  if (picked && !KG.dayInfo(picked, prog(), data).bookable) picked = '';
+  drawCal(false); renderTimes(); update();
+}
+function drawCal(animate){
+  if (!data) return;
+  const min = KG.monthStart(data.today), max = KG.monthStart(KG.addMonths(data.today, data.settings.maxMonths));
+  $('#calTitle').textContent = fmt(month, { year: 'numeric', month: 'long' });
+  $('#calPrev').disabled = month <= min; $('#calNext').disabled = month >= max;
+  const wk = $('#calWeek'); wk.textContent = '';
+  for (let i = 0; i < 7; i++) wk.append(el('span', '', fmt(KG.addDays('2023-01-01', i), { weekday: 'short' })));
+  const box = $('#calDays'); box.textContent = '';
+  for (let i = 0; i < KG.weekdayNum(month); i++) box.append(el('div', 'day pad'));
+  for (let d = month; d.slice(0, 7) === month.slice(0, 7); d = KG.addDays(d, 1)) {
+    const info = KG.dayInfo(d, prog(), data), cls = 'day ' + info.status + (d === data.today ? ' today' : '');
+    const label = fmt(d, { weekday: 'long', month: 'long', day: 'numeric' });
+    let c;
+    if (info.bookable) {
+      c = el('button', cls); c.type = 'button'; c.dataset.date = d;
+      c.setAttribute('aria-pressed', d === picked);
+      c.setAttribute('aria-label', label + ' — ' + t(info.status === 'few' ? 'lgFew' : 'lgOpen'));
+      c.addEventListener('click', () => { picked = d; drawCal(false); renderTimes(); $('#formMsg').hidden = true; });
+    } else {
+      c = el('div', cls); c.setAttribute('role', 'img');
+      c.setAttribute('aria-label', label + ' — ' + t(info.status === 'full' ? 'lgFull' : 'slotOff'));
+    }
+    c.append(el('span', 'n', String(+d.slice(8))), el('i'));
+    box.append(c);
+  }
+  if (animate) { box.classList.remove('swap'); void box.offsetWidth; box.classList.add('swap'); }
+  const note = $('#calNote'); note.hidden = data.settings.accepting; note.textContent = data.settings.accepting ? '' : t('paused');
+  const p = $('#picked'); p.hidden = !picked; p.textContent = picked ? fmt(picked, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) : '';
+}
+function renderTimes(){
+  const keep = slot(), box = $('#times'); box.textContent = '';
+  if (!data) return;
+  if (!picked) { box.append(el('p', 'hint', t('pickDate'))); return; }
+  const cap = data.settings.capacity;
+  for (const s of KG.dayInfo(picked, prog(), data).slots) {
+    const off = s.closed || s.left <= 0;
+    const lab = el('label'), inp = el('input');
+    inp.type = 'radio'; inp.name = 'slot'; inp.value = s.time; inp.disabled = off; inp.checked = s.time === keep && !off;
+    lab.append(inp, el('span', '', s.time), el('small', '', s.closed ? t('slotOff') : s.left <= 0 ? t('full') : s.left < cap ? t('left', s.left) : ''));
+    box.append(lab);
+  }
+}
+function update(){
+  $('#guests').textContent = guests;
+  $('#total').textContent = won(PRICE[prog()] * guests);
+}
+function fail(key, n){ const m = $('#formMsg'); m.textContent = t(key, n); m.hidden = false; return false; }
+
+async function submit(e){
+  e.preventDefault(); $('#formMsg').hidden = true;
+  const f = e.target;
+  if (!picked) return fail('eDate');
+  if (!slot()) return fail('eTime');
+  if (!f.name.value.trim()) return fail('eName');
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.value.trim())) return fail('eEmail');
+  const s = KG.dayInfo(picked, prog(), data).slots.find(x => x.time === slot());
+  if (s && guests > s.left) return fail('eFull', s.left);
+  if (api.mode === 'off') return fail('eSetup');
+  const req = { experience: prog(), date: picked, time: slot(), guests, name: f.name.value.trim(), email: f.email.value.trim(),
+                note: f.msg.value.trim(), lang, website: f.website.value };
+  const btn = $('#submitBtn'), label = btn.innerHTML; btn.disabled = true; btn.textContent = t('sending');
+  const r = await api.call('book', req);
+  btn.disabled = false; btn.innerHTML = label;
+  if (!r.ok) {
+    if (r.code === 'full') { await loadData(); return fail('eFull', r.left); }
+    if (r.code === 'date' || r.code === 'off') { await loadData(); return fail('eClosed'); }
+    return fail('eNet');
+  }
+  $('#dCode').textContent = r.code;
+  $('#dProg').textContent = (req.experience === 'A' ? EN.aTitle : EN.bTitle).replace('&amp;', '&');
+  $('#dWhen').textContent = `${req.date} · ${req.time}`;
+  $('#dGuests').textContent = guests;
+  $('#dAmt').textContent = won(r.total || PRICE[req.experience] * guests);
+  const b = r.bank || {}, box = $('#bankBox'); box.textContent = '';
+  if (b.account) [[b.name], ['SWIFT', b.swift], ['Account', b.account], ['Name', b.holder]].forEach(row => {
+    if (row[row.length - 1]) box.append(el('div', '', row.join(': '))); });
+  else box.textContent = t('bankSoon');
+  f.hidden = true; $('#done').hidden = false; $('#book').scrollIntoView({ block: 'start' });
+  picked = ''; loadData();
+}
+
+function applyLang(l){
+  lang = l; document.documentElement.lang = l === 'zh' ? 'zh-Hant' : l;
+  $$('[data-i18n]').forEach(el => { el.innerHTML = (I18N[l] && I18N[l][el.dataset.i18n]) || EN[el.dataset.i18n]; });
+  $$('.lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === l));
+  if (l === 'en' && CFG.address) $$('[data-address]').forEach(el => el.textContent = CFG.address);
+  try { localStorage.setItem('kgs-lang', l); } catch (e) {}
+  drawCal(false); renderTimes(); update();
+}
+function shift(n){ month = KG.addMonths(month, n); drawCal(true); }
+
+$('#testBadge').hidden = api.mode !== 'preview';
+$('#calPrev').addEventListener('click', () => shift(-1));
+$('#calNext').addEventListener('click', () => shift(1));
+$$('input[name=prog]').forEach(r => r.addEventListener('change', () => { drawCal(false); renderTimes(); update(); }));
+$('#minus').addEventListener('click', () => { guests = Math.max(1, guests - 1); update(); });
+$('#plus').addEventListener('click', () => { guests = Math.min(data ? data.settings.capacity : 10, guests + 1); update(); });
+$$('[data-pick]').forEach(a => a.addEventListener('click', () => { $(`input[name=prog][value=${a.dataset.pick}]`).checked = true; drawCal(false); renderTimes(); update(); }));
+$('#bookForm').addEventListener('submit', submit);
+$('#again').addEventListener('click', () => { $('#done').hidden = true; $('#bookForm').hidden = false; });
+$$('.lang button').forEach(b => b.addEventListener('click', () => applyLang(b.dataset.lang)));
+$('#yr').textContent = new Date().getFullYear();
+let saved = null; try { saved = localStorage.getItem('kgs-lang'); } catch (e) {}
+const nl = (navigator.language || '').toLowerCase();
+applyLang(saved || (nl.startsWith('ja') ? 'ja' : nl.startsWith('zh') ? 'zh' : 'en'));
+loadData();
+</script>
+</body>
+</html>
